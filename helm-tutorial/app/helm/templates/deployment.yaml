@@ -1,25 +1,41 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "helm.fullname" . }}
-  labels:
-    {{- include "helm.labels" . | nindent 4 }}
+    name: app-deploy
+    labels:
+      app: app
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
-  selector:
-    matchLabels:
-      {{- include "helm.selectorLabels" . | nindent 6 }}
-  template:
-    metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      labels:
-        {{- include "helm.labels" . | nindent 8 }}
-        {{- with .Values.podLabels }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
-
+    replicas: 3
+    selector:
+        matchLabels:
+            app: app
+    template:
+        metadata:
+            labels:
+                app: app
+        spec:
+            containers:
+                - name: app
+                  image: matesousa/app-helm:{{ .Values.env.APP_VERSION }}
+                  ports:
+                    - containerPort: 3000
+                  env:
+                  - name: NAME
+                    value: 'Matheus'
+                  readinessProbe:
+                    httpGet:
+                        path: /health
+                        port: 3000
+                    initialDelaySeconds: 10
+                    periodSeconds: 10
+                    successThreshold: 1
+                    failureThreshold: 3
+                  livenessProbe:
+                    httpGet:
+                        path: /health
+                        port: 3000
+                    initialDelaySeconds: 10
+                    periodSeconds: 10
+                    timeoutSeconds: 5
+                    successThreshold: 1
+                    failureThreshold: 3
