@@ -10,6 +10,10 @@ env:
   DOCKERHUB_KEY: ${{ secrets.DOCKER_KEY }}
   IMAGE_NAME: app-helm
 
+defaults:
+  run:
+    working-directory: helm-tutorial/app/
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
