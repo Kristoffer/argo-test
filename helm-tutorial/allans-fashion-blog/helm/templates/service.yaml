@@ -10,6 +10,6 @@ spec:
         app: app
     ports:
      - protocol: TCP
-       port: 80
-       targetPort: 80
-       nodePort: 80
+       port: 4321
+       targetPort: 4321
+       nodePort: 4321
