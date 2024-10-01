@@ -2,22 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: allans-fashion-blog
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  destination:
+    name: ''
+    namespace: kasper
+    server: https://kubernetes.default.svc
   source:
-    repoURL: https://github.com/Kristoffer/argo-test.git
     path: helm-tutorial/allans-fashion-blog/dreary-dwarf/helm
+    repoURL: https://github.com/Kristoffer/argo-test.git
     targetRevision: HEAD
     helm:
       valueFiles:
         - values.yaml
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
-  syncPolicy:
-    automated:
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+  sources: []
+  project: default
