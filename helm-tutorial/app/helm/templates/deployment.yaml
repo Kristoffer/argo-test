@@ -16,7 +16,7 @@ spec:
         spec:
             containers:
                 - name: app
-                  image: Kristoffer77/app-helm:{{ .Values.env.APP_VERSION }}
+                  image: kristoffer77/app-helm:{{ .Values.env.APP_VERSION }}
                   ports:
                     - containerPort: 3000
                   env:
