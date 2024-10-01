@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deploy
+  name: allans-fashion-blog-deploy
   labels:
-    app: app
+    app: allans-fashion-blog
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: app
+      app: allans-fashion-blog
   template:
     metadata:
       labels:
-        app: app
+        app: allans-fashion-blog
     spec:
       containers:
-        - name: app
-          image: kristoffer77/app-helm:{{ .Values.env.APP_VERSION }}
+        - name: allans-fashion-blog
+          image: kristoffer77/allans-fashion-blog:{{ .Values.env.APP_VERSION }}
           ports:
             - containerPort: 3000
           env:
