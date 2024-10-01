@@ -14,4 +14,4 @@ spec:
               service:
                 name: app-service
                 port:
-                  number: 4321
+                  number: 30000
