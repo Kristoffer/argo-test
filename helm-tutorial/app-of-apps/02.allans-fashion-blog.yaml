@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Kristoffer/argo-test.git
-    path: helm-tutorial/allans-fashion-blog/helm
+    path: helm-tutorial/allans-fashion-blog/dreary-dwarf/helm
     targetRevision: HEAD
     helm:
       valueFiles:
