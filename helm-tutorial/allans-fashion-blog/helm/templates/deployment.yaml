@@ -18,14 +18,14 @@ spec:
                 - name: app
                   image: kristoffer77/allans-fashion-blog:{{ .Values.env.APP_VERSION }}
                   ports:
-                    - containerPort: 4321
+                    - containerPort: 30001
                   env:
                   - name: NAME
                     value: 'Matheus'
                   readinessProbe:
                     httpGet:
                         path: /health
-                        port: 4321
+                        port: 30001
                     initialDelaySeconds: 10
                     periodSeconds: 10
                     successThreshold: 1
@@ -33,7 +33,7 @@ spec:
                   livenessProbe:
                     httpGet:
                         path: /health
-                        port: 4321
+                        port: 30001
                     initialDelaySeconds: 10
                     periodSeconds: 10
                     timeoutSeconds: 5
