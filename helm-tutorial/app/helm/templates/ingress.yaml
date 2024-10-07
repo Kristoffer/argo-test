@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   #name: ingress
-  name: test123.allan
+  name: "test123.allan"
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -13,6 +13,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: app-service
+                #name: app-service
+                name: "test123.allan"
                 port:
                   number: 3000
