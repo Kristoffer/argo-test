@@ -15,3 +15,7 @@ spec:
                 name: app-service
                 port:
                   number: 3000
+              service:
+                name: allans-fashion-blog-service
+                port:
+                  number: 30001
