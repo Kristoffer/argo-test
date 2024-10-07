@@ -8,10 +8,9 @@ spec:
   rules:
     - http:
         paths:
-            pathType: Prefix
-            backend:
+        - backend:
               service:
                 name: allans-fashion-blog-service
                 port:
                   number: 30001
-
+                pathType: Prefix
