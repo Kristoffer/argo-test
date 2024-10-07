@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-service
+  name: allans-fashion-blog-service
   labels:
-    app: app
+    app: allans-fashion-blog
 spec:
     type: NodePort
     selector:
