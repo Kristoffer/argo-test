@@ -1,7 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress
+  #name: ingress
+  name: test123.allan
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
