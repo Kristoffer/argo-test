@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: allans-fashion-blog-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  namespace: kristoffer
+spec:
+  ingressClassName: nginx-public
+  rules:
+    - host: "test123.allan"
+      http:
+        paths:
+        - backend:
+          service:
+            name: allans-fashion-blog-service
+            port:
+              number: 30001
+          pathType: Prefix
+          path: /
