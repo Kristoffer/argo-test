@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx-public
   rules:
-    - host: "test123.allan"
+    - host: allan.jppol.click
       http:
         paths:
           - backend:
@@ -19,3 +19,7 @@ spec:
                   number: 30001
             pathType: Prefix
             path: /
+  tls:
+    - hosts:
+        - allan.jppol.click
+      secretName: allan-jppol-click-secret
