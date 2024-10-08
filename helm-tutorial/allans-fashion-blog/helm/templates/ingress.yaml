@@ -17,5 +17,5 @@ spec:
                 name: allans-fashion-blog-service
                 port:
                   number: 30001
-              pathType: Prefix
-              path: /
+            pathType: Prefix
+            path: /
