@@ -12,10 +12,10 @@ spec:
     - host: "test123.allan"
       http:
         paths:
-        - backend:
-          service:
-            name: allans-fashion-blog-service
-            port:
-              number: 30001
-          pathType: Prefix
-          path: /
+          - backend:
+            service:
+              name: allans-fashion-blog-service
+              port:
+                number: 30001
+            pathType: Prefix
+            path: /
