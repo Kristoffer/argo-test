@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: allans-fashion-blog-ingress
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: nginx-public
     #nginx.ingress.kubernetes.io/rewrite-target: /
   namespace: kristoffer
