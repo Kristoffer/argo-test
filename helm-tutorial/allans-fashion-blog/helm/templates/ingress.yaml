@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx-public
   rules:
-    - host: allan.jppol.click
+    - host: fashion.jppol.click
       http:
         paths:
           - backend:
@@ -22,5 +22,5 @@ spec:
             path: /
   tls:
     - hosts:
-        - allan.jppol.click
+        - fashion.jppol.click
       secretName: allan-jppol-click-secret
