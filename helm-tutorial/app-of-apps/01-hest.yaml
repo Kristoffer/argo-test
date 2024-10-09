@@ -25,7 +25,7 @@ spec:
         - name: image.tag
           value: latest
         - name: image.repository
-          value: kristoffer77/hest01
+          value: kristoffer77/01-hest
   project: idp-project
   syncPolicy:
     automated:
