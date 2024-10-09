@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: postgres
+  name: 01-hest
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
@@ -13,16 +13,19 @@ spec:
     namespace: kristoffer
     server: https://kubernetes.default.svc
   sources:
-    - repoURL: https://charts.bitnami.com/bitnami
-      path: ""
-      targetRevision: 16.0.1
-      chart: postgresql
-      helm:
-        valueFiles:
-          - $values/postgres/values.yaml
-    - repoURL: https://github.com/Lynetk/eks-argo-config.git
-      targetRevision: main
-      ref: values
+    repoURL: https://github.com/Kristoffer/argo-test.git
+    path: helm-tutorial/tech-blog/helm
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: autoscaling.targetCPUUtilizationPercentage
+          value: '5'
+        - name: image.tag
+          value: latest
+        - name: image.repository
+          value: kristoffer77/hest01
   project: idp-project
   syncPolicy:
     automated:
@@ -30,3 +33,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+
