@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    name: ""
+    namespace: kristoffer
+    server: https://kubernetes.default.svc
+  sources:
+    - repoURL: https://charts.bitnami.com/bitnami
+      path: ""
+      targetRevision: 16.0.1
+      chart: postgresql
+      helm:
+        valueFiles:
+          - $values/postgres/values.yaml
+    - repoURL: https://github.com/Lynetk/eks-argo-config.git
+      targetRevision: main
+      ref: values
+  project: idp-project
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
