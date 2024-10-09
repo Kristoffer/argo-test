@@ -23,7 +23,7 @@ spec:
         - name: autoscaling.targetCPUUtilizationPercentage
           value: '5'
         - name: image.tag
-          value: latest
+          value: latest2
         - name: image.repository
           value: kristoffer77/01-hest
   project: idp-project
