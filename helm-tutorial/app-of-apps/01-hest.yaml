@@ -10,11 +10,11 @@ metadata:
 spec:
   destination:
     name: ""
-    namespace: kristoffer2
+    namespace: kristoffer
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/Kristoffer/argo-test.git
-    path: helm-tutorial/tech-blog/helm
+    path: helm-tutorial/01-hest/helm
     targetRevision: HEAD
     helm:
       valueFiles:
