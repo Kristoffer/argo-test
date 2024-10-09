@@ -10,7 +10,7 @@ metadata:
 spec:
   destination:
     name: ""
-    namespace: kristoffer
+    namespace: kristoffer2
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/Kristoffer/argo-test.git
