@@ -29,8 +29,8 @@ spec:
         - name: ingress.tls[0].secretName
           value: hest01.jppol.click.secret
         - name: ingress.tls[0].hosts
-          values: 
-            - hest01.jppol.click
+          values: hest01.jppol.click 
+          #- hest01.jppol.click
 
   project: idp-project
   syncPolicy:
