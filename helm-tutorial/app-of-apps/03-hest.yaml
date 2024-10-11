@@ -27,13 +27,13 @@ spec:
         - name: image.repository
           value: kristoffer77/01-hest
         - name: ingress.hosts[0].host
-          value: hest02.jppol.click
+          value: hest03.jppol.click
         - name: ingress.hosts[0].paths[0].path
           value: /
         - name: ingress.tls[0].secretName
-          value: hest02.jppol.click.secret
+          value: hest03.jppol.click.secret
         - name: ingress.tls[0].hosts[0]
-          value: hest02.jppol.click
+          value: hest03.jppol.click
 
   project: idp-project
   syncPolicy:
