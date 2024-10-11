@@ -52,7 +52,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: hest01.jppol.click
+    - host: ""
       paths:
         - path: /
           pathType: ImplementationSpecific
