@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hest-05
+  name: hest05
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
@@ -26,6 +26,8 @@ spec:
           value: latest2
         - name: image.repository
           value: kristoffer77/01-hest
+          #- name: ingress.hosts.host
+          #value: hest05.jppol.click
         - name: ingress.tls[0].secretName
           value: hest05.jppol.click.secret
         - name: ingress.tls[0].hosts[0]
