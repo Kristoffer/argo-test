@@ -26,8 +26,8 @@ spec:
           value: latest2
         - name: image.repository
           value: kristoffer77/01-hest
-          #- name: ingress.hosts.host
-          #value: hest05.jppol.click
+        - name: ingress.hosts[0].host
+          value: hest05.jppol.click
         - name: ingress.tls[0].secretName
           value: hest05.jppol.click.secret
         - name: ingress.tls[0].hosts[0]
