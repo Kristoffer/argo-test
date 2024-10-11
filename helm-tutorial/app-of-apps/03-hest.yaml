@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hest03
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    name: ""
+    namespace: kristoffer
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/Kristoffer/argo-test.git
+    path: helm-tutorial/01-hest/helm
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: autoscaling.targetCPUUtilizationPercentage
+          value: '5'
+        - name: image.tag
+          value: latest2
+        - name: image.repository
+          value: kristoffer77/01-hest
+        - name: ingress.hosts[0].host
+          value: hest02.jppol.click
+        - name: ingress.hosts[0].paths[0].path
+          value: /
+        - name: ingress.tls[0].secretName
+          value: hest02.jppol.click.secret
+        - name: ingress.tls[0].hosts[0]
+          value: hest02.jppol.click
+
+  project: idp-project
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
