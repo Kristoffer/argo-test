@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: allans-fashion-blog-deploy
+  labels:
+    app: allans-fashion-blog
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: allans-fashion-blog
+  template:
+    metadata:
+      labels:
+        app: allans-fashion-blog
+    spec:
+      containers:
+        - name: app
+          image: 735541003411.dkr.ecr.eu-west-1.amazonaws.com/restllm_service:main-2.5.1-2
+          ports:
+            - containerPort: 30001
+          env:
+            - name: NAME
+              value: Matheus

@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: allans-fashion-blog-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: nginx-public
+    #nginx.ingress.kubernetes.io/rewrite-target: /
+  namespace: kristoffer
+spec:
+  ingressClassName: nginx-public
+  rules:
+    - host: fashion.jppol.click
+      http:
+        paths:
+          - backend:
+              service:
+                name: allans-fashion-blog-service
+                port:
+                  number: 30001
+            pathType: Prefix
+            path: /
+  tls:
+    - hosts:
+        - fashion.jppol.click
+      secretName: fashion-jppol-click-secret
